@@ -28,7 +28,7 @@ def Download(url, args):
 #Download buttons
 for i in video_res:
     try:
-        st.download_button(label="Download quality "+i,on_click=Download(link,i))
+        st.button(label="Download quality "+i,on_click=Download(link,i))
     except:
         pass
 
