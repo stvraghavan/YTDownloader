@@ -23,7 +23,7 @@ video_res = set(video_res)
 def Download(url, args):
     yt = YouTube(url)
 
-    target = yt.streams.filter(adaptive=True).get_by_resolution(args)
+    target = yt.streams.get_by_resolution(args)
     target.download()
 #Download buttons
 for i in video_res:
