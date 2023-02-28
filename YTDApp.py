@@ -1,7 +1,6 @@
 import streamlit as st
 from pytube import YouTube
 from pytube import Playlist
-from tqdm import tqdm
 
 #Input section
 st.header("YouTube Video / Audio  Downloader App")
