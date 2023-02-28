@@ -5,7 +5,6 @@ from tqdm import tqdm
 
 #Input section
 st.header("YouTube Video / Audio  Downloader App")
-link = st.text_input("Paste the YouTube Video Link here")
 
 
 
@@ -15,6 +14,7 @@ link = st.text_input("Paste the YouTube Video Link here")
 tab1, tab2 = st.tabs(['Video','Playlist'])
 with tab1:
     try:
+        link = st.text_input("Paste the YouTube Video Link here")
         yt = YouTube(url=link)
         st.title(yt.title)
         st.image(yt.thumbnail_url)
@@ -69,6 +69,7 @@ with tab1:
         pass
 with tab2:
     try:
+        link = st.text_input("Paste the YouTube Channel Link here")
         yt = Playlist(url=link)
         st.title(yt.videos[0].title)
         st.image(yt.videos[0].thumbnail_url)
@@ -93,10 +94,8 @@ with tab2:
         
         # st.write(video_dict)
 
-        # if st.button("Pre-View"):
-        #     st.write(yt.videos[video_dict[video_choice]])
-
-            
-            # st.video(video_link)
+        if st.button("Pre-View"):
+            st.video(yt.video_urls[0])
+            st.write(yt.playlist_url)
     except:
         pass
