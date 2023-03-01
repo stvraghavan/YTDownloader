@@ -87,14 +87,14 @@ with tab2:
             if option in (audio_res):
                 for video in video_object.videos:
                     video.streams.filter(abr=option,only_audio=True,file_extension="mp3").first().download()
-        # videos_list = [x.title for x in yt.videos]
+        videos_list = [x.title for x in yt.videos]
         # video_dict = {item: i for i, item in enumerate([x.title for x in yt.videos])}
-        # video_choice = st.selectbox("Select video to preview", options=videos_list)
+        video_choice = st.selectbox("Select video to preview", options=videos_list)
         
         # st.write(video_dict)
 
         if st.button("Pre-View"):
-            st.video(yt.video_urls[0])
+            st.video(yt.video_urls[videos_list.index(video_choice)])
             st.write(yt.playlist_url)
     except:
         pass
