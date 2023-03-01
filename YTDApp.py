@@ -36,7 +36,7 @@ with tab1:
                 video_object.streams.filter(resolution=option,progressive=True,file_extension="mp4").first().download()
             if option in (audio_res):
                 video_object.streams.filter(abr=option,only_audio=True).first().download()
-        if st.button("View"):
+        if st.button("Pre-View"):
             st.video(link)
         #Download buttons
         # col1,col2 = st.columns(2)
@@ -68,7 +68,7 @@ with tab1:
         pass
 with tab2:
     try:
-        link = st.text_input("Paste the YouTube Channel Link here")
+        link = st.text_input("Paste the YouTube Playlist Link here")
         yt = Playlist(url=link)
         st.title(yt.videos[0].title)
         st.image(yt.videos[0].thumbnail_url)
